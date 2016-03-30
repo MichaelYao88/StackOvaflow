@@ -1,0 +1,5 @@
+<p>
+<%Question.all.each do |x| %>
+  <a href="/questions/<%=x.id%>"><%=x.question_title%></a>
+  <%end%>
+</p>
