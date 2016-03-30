@@ -1,6 +1,6 @@
 class CreateAnswers < ActiveRecord::Migration
   def change
-    create_table :anwers do |t|
+    create_table :answers do |t|
       t.integer  :question_id
       t.integer  :answerer_id
       t.string   :text
@@ -9,3 +9,4 @@ class CreateAnswers < ActiveRecord::Migration
     end
   end
 end
+# CHANGE ANWER TO ANSWERS
