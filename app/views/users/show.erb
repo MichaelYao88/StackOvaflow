@@ -1,1 +1,9 @@
 <h1><%=current_user.name %></h1>
+<h3>Questions:</h3>
+  <% @questions.each do |question| %>
+    <p><a href= "/questions/<%= question.id %>"><%= question.question_title %></a></p>
+  <% end %>
+<h3>Answers:</h3>
+  <% @answers.each do |answer| %>
+    <p><%= answer.text %></p>
+  <% end %>
