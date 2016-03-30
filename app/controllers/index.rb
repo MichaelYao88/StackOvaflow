@@ -1,4 +1,6 @@
 get '/' do
-  erb :'questions/index'
+  erb :'questions/article'
 end
+
+
 
