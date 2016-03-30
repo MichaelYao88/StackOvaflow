@@ -21,11 +21,11 @@
   <nav>
     <ul>
       <% if logged_in? %>
-      <li><a href='/users/show'><%= current_user.name %></a></li>
-      <li><a href='/logout'>Log Out</a></li>
+        <li><a href='/users/show'><%= current_user.name %></a></li>
+        <li><a href='/logout'>Log Out</a></li>
       <% else %>
-      <li><a href="/session/new">Login</a></li>
-      <li><a href="/users/new">Register</a></li>
+        <li><a href="/session/new">Login</a></li>
+        <li><a href="/users/new">Register</a></li>
       <% end %>
       <li><a href='/'>Home</a></li>
     </ul>
@@ -35,5 +35,6 @@
   </nav>
   <br>
   <%= yield %>
+  <img src="/images/whale.png" alt="whale">
 </body>
 </html>
