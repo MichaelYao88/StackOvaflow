@@ -8,6 +8,15 @@ body: <%=@question.question_body%>
 <ul>
 <%@question.answers.each do |answer|%>
   <li>ANSWER: <%=answer.text%> -- <%=answer.answerer.name%></li>
+  <li>
+    <form action='/questions/<%= @question.id %>/answers/<%= answer.id %>/edit' method='get'>
+      <input type='submit' value='edit post'>
+    </form>
+    <form action='/questions/<%= @question.id %>/answers/<%= answer.id %>' method='post'>
+      <input type='hidden' name="_method" value="delete">
+      <input type='submit' value='delete post'>
+    </form>
+  </li>
     <ul>
     <% answer.comments.each do |comment|%>
       <li>COMMENT: <%=comment.text%> -- COMMENTER: <%=comment.commenter.name%></li>
@@ -20,4 +29,6 @@ body: <%=@question.question_body%>
   <input type='submit' value='answer post!'>
 </form>
 
-<!-- render answer form down here on click on answer button -->
+
+
+
