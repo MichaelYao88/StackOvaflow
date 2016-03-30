@@ -1,22 +1,24 @@
 <p>
 <%Question.all.each do |question| %>
   <br>
-  <%= question.votes.count %>
-  <a href="/upboat" class="upboat">^UP IMG^</a>
-  <a href="/questions/<%=question.id%>" class="question-link"><%=question.question_title%></a>
-  <a href="/downboat" class="downboat">vDOWN IMGv</a>
+  <section class = "parent">
+    <span class = "upvotes"><%= question.votes.count %></span>
+    <a href="/upboat/questions/<%= question.id%>" class="upboat">^UP IMG^</a>
+    <a href="/questions/<%=question.id%>" class="question-link"><%=question.question_title%></a>
+    <a href="/downboat/questions/<%= question.id%>" class="downboat">vDOWN IMGv</a>
 
-  <% if current_user == question.questioner %>
-    <form method="post" action="/questions/<%=question.id%>">
-    <input type="hidden" name="_method" value="delete">
-    <input type="submit" class="btn btn-link" value="Delete">
-    </form>
-  <% end %>
+    <% if current_user == question.questioner %>
+      <form method="post" action="/questions/<%=question.id%>">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" class="btn btn-link" value="Delete">
+      </form>
+    <% end %>
 
-  <br>
-
-    <div>Answers <%= question.answers.count %></div>
     <br>
+
+      <div>Answers <%= question.answers.count %></div>
+      <br>
+  </section>
   <%end%>
 </p>
 
