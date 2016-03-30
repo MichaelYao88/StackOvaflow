@@ -1,0 +1,8 @@
+<p>Edit your question</p>
+<form method="post" action="/questions">
+  <input type="hidden" name="_method" value="put">
+  <input type="hidden" name="id" value="<%= @question.id %>">
+  <br>
+  <input type="text" name="question_body" value="<%=@question.question_body%>">
+  <input type="submit" value="Update!">
+</form>

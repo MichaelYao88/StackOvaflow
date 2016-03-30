@@ -1,0 +1,21 @@
+.question-link {
+  font-size: 2em;
+  color: #4C4CFF;
+}
+
+.edit-link {
+  font-size: .85em;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
+}
+
+.error {
+  font-size: 3em;
+  font-weight: bold;
+}

@@ -30,3 +30,20 @@ post '/questions' do
     erb :'questions/new'
   end
 end
+
+put '/questions' do
+  question = Question.find_by(id: params[:id])
+  question.update(question_body: params[:question_body])
+  redirect "/questions/#{question.id}"
+end
+
+get '/questions/:id/edit' do
+  p params
+  @question = Question.find_by(id: params[:id])
+  if current_user == @question.questioner
+    erb :'questions/edit'
+  else
+    @errors = ["THIS AINT YOURS YOU DUMB WHALE"]
+    erb :'/error'
+  end
+end
