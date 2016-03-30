@@ -1,0 +1,9 @@
+<form method="post" action="/questions">
+  <input type="text" name="question_title" placeholder="question">
+  <br>
+  <input type="text" name="question_body" placeholder="body">
+  <input type="submit" name="Submit Question!">
+  <%= erb :_errors, locals: { errors: @errors } %>
+</form>
+
+
