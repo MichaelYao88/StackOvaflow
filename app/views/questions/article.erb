@@ -12,3 +12,9 @@ body: <%=@question.question_body%>
   </ul>
 <%end%>
 </ul>
+
+<form action='/questions/<%= @question.id %>/answers/new' method='get'>
+  <input type='submit' value='answer post!'>
+</form>
+
+<!-- render answer form down here on click on answer button -->
