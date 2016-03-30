@@ -20,9 +20,11 @@ class User < ActiveRecord::Base
 
   def validate_password
     @errors.add(:password, "must be longer than 6 characters") unless @plain_text.length > 6
+    @errors.add(:password, "password can't be blank") if @plain_text.nil?
   end
 
 validates :name, presence: true
+validate :validate_password
 
 has_many :votes, foreign_key: :voter_id
 has_many :comments, foreign_key: :commenter_id
