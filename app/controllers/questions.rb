@@ -1,6 +1,6 @@
 get '/questions/new' do
   if current_user
-  erb :'questions/new'
+    erb :'questions/new'
   else
     @errors = ["please log in"]
   erb :'questions/index'
@@ -18,12 +18,9 @@ get '/questions/:id' do
 end
 
 post '/questions' do
-  p current_user
   question = Question.new(question_title: params[:question_title],question_body: params[:question_body], questioner: current_user)
-  p question.questioner
-  p question.questioner == current_user
+  question.questioner == current_user
   if question.save
-    p "yoooooooooooooo"
     redirect '/'
   else
     @errors =["yo you gotta add a title or body to this"]
@@ -38,7 +35,6 @@ put '/questions' do
 end
 
 get '/questions/:id/edit' do
-  p params
   @question = Question.find_by(id: params[:id])
   if current_user == @question.questioner
     erb :'questions/edit'
@@ -47,3 +43,11 @@ get '/questions/:id/edit' do
     erb :'/error'
   end
 end
+
+delete '/questions/:id' do
+  question = Question.find_by(id: params[:id])
+  question.destroy
+  redirect '/'
+end
+
+
