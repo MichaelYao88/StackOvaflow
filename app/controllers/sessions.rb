@@ -1,7 +1,3 @@
-get '/' do
-  erb :index
-end
-
 get '/session/new' do
   erb :'/session/new'
 end

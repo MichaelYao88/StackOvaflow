@@ -1,6 +1,9 @@
 title: <%=@question.question_title%>
 <br>
 body: <%=@question.question_body%>
+<% if current_user == @question.questioner %>
+  <a href='<%= @question.id %>/edit' class="edit-link">Edit</a>
+<% end %>
 <br>
 <ul>
 <%@question.answers.each do |answer|%>
