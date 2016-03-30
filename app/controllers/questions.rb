@@ -43,3 +43,11 @@ get '/questions/:id/edit' do
     erb :'/error'
   end
 end
+
+delete '/questions/:id' do
+  question = Question.find_by(id: params[:id])
+  question.destroy
+  redirect '/'
+end
+
+

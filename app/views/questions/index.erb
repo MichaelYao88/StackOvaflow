@@ -1,9 +1,21 @@
 <p>
-<%Question.all.each do |x| %>
+<%Question.all.each do |question| %>
   <br>
-  <a href="/questions/<%=x.id%>" class="question-link"><%=x.question_title%></a>
+  <%= question.votes.count %>
+  <a href="/upboat" class="upboat">^UP IMG^</a>
+  <a href="/questions/<%=question.id%>" class="question-link"><%=question.question_title%></a>
+  <a href="/downboat" class="downboat">vDOWN IMGv</a>
+
+  <% if current_user == question.questioner %>
+    <form method="post" action="/questions/<%=question.id%>">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" class="btn btn-link" value="Delete">
+    </form>
+  <% end %>
+
   <br>
-    <div>Answers <%= x.answers.count %></div>
+
+    <div>Answers <%= question.answers.count %></div>
     <br>
   <%end%>
 </p>
