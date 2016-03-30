@@ -1,0 +1,6 @@
+<form method="post" action="/session">
+  <input type="text" name="name" placeholder="Name">
+  <input type="password" name="password" placeholder="Password">
+  <input type="submit" name="Login">
+<%= erb :_errors, locals: { errors: @errors } %>
+</form>
