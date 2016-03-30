@@ -1,0 +1,13 @@
+title: <%=@question.question_title%>
+<br>
+body: <%=@question.question_body%>
+<br>
+<%@question.answers.each do |x|%>
+  <br>
+  ANSWER:
+  <br>
+  <%=x.text%>
+  <br>
+  written by: <%=x.answerer.name%>
+  <br>
+<%end%>
