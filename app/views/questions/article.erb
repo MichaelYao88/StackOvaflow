@@ -2,12 +2,13 @@ title: <%=@question.question_title%>
 <br>
 body: <%=@question.question_body%>
 <br>
-<%@question.answers.each do |x|%>
-  <br>
-  ANSWER:
-  <br>
-  <%=x.text%>
-  <br>
-  written by: <%=x.answerer.name%>
-  <br>
+<ul>
+<%@question.answers.each do |answer|%>
+  <li>ANSWER: <%=answer.text%> -- <%=answer.answerer.name%></li>
+    <ul>
+    <% answer.comments.each do |comment|%>
+      <li>COMMENT: <%=comment.text%> -- COMMENTER: <%=comment.commenter.name%></li>
+    <%end%>
+  </ul>
 <%end%>
+</ul>

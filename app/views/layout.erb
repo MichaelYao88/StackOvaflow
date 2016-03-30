@@ -29,7 +29,7 @@
       <% end %>
       <li><a href='/'>Home</a></li>
     </ul>
-    <p><%=@message%></p>
+    <%= erb :_errors, locals: { errors: @errors } %>
     <br>
     <div class="post_question"><a href= "/questions/new">Post a Question!</a></div>
   </nav>
