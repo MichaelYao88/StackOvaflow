@@ -1,7 +1,13 @@
 <p>
 <%Question.all.each do |x| %>
   <br>
-  <a href="/questions/<%=x.id%>"><%=x.question_title%></a>
+  <a href="/questions/<%=x.id%>" class="question-link"><%=x.question_title%></a>
   <br>
+    <div>Answers <%= x.answers.count %></div>
+    <% if current_user == x.questioner %>
+      <a href='questions/<%= x.id %>/edit' class="edit-link">Edit</a>
+    <% end %>
+    <br>
   <%end%>
 </p>
+
