@@ -1,7 +1,16 @@
-body {
+.body {
   text-align: center;
+  font-size: 1.5em;
 }
 
+.title {
+  text-align: center;
+  font-size: 2.5em;
+}
+
+.upboat, .downboat {
+  font-size: 2em;
+}
 .question-link {
   font-size: 2em;
   color: #4C4CFF;
@@ -13,13 +22,18 @@ body {
 
 .container {
   font-family: 'Karla', sans-serif;
-  border: 2px dotted #2A4166;
+  /*border: 2px dotted #2A4166;*/
   border-width:1px 0;
   color: #2A4166;
+  text-align: center;
 }
 
 li {
   list-style: none;
+}
+
+ul {
+  padding: 0;
 }
 
 a {
@@ -35,10 +49,28 @@ a {
 .answer {
   color: #1A69E5;
   font-size: 1.5em;
+  text-align: center;
+  margin: auto;
 }
 
 .button {
   color: white;
+  background-color: #1A69E5;
+  border-radius: 20px;
+  border: none;
+  margin: 3px;
+  padding: 5px;
+  font-size: .8em;
+  text-align: center;
+}
+
+.button:hover {
+  background-color: #69A4FF;
+  padding: 5px;
+  border-radius: 20px;
+}
+
+/*.add_question_commment {
   background-color: #1A69E5;
   border-radius: 20px;
   text-align: center;
@@ -46,11 +78,29 @@ a {
   margin: 3px;
   padding: 5px;
   font-size: .8em;
+  width: 7%;
+  text-align: center;
+  margin: auto;
 }
 
-.button:hover {
-  background-color: #69A4FF;
+.add_question_commment a {
+  color: white;
+  background-color: #1A69E5;
+  border-radius: 20px;
+  text-align: center;
+  border: none;
+  margin: 3px;
+  padding: 2px;
+  width: 7%;
+  text-align: center;
+  margin: auto;
 }
+
+.add_question_commment:hover {
+  background-color: #69A4FF;
+}*/
+
+
 
 /*li a:hover {
   background-color: #BBFFFF;
@@ -58,7 +108,7 @@ a {
 
 .header {
   text-align: left;
-  padding: 1em;
+  padding: .25em;
   background-color: white;
 }
 
@@ -74,6 +124,7 @@ a {
   padding: 0;
   text-align:center;
   background-color: #69A4FF;
+  font-family: 'Karla', sans-serif;
 }
 
 .nav li {
@@ -83,30 +134,45 @@ a {
 .nav a, .nav a:visited {
   display:inline-block;
   padding:10px;
-  color: white;
+  font-weight: bold;
+  color: #0B2F66;
 }
 
 .nav a:hover {
-  background-color: #2A4166;
+  color: white;
   border-radius: 25px;
 }
 
 .post_question {
+  font-size: 1em;
   background-color: #1A69E5;
   width: 10%;
   color: white;
   border-radius: 30px;
   padding: 1em;
+  display: inline-block;
+  margin: 2em;
 }
 
 .post_question a, .post_question a:visited {
   color: white;
 }
 
-.post_question a:hover {
+.post_question:hover {
   background-color: #69A4FF;
+  border-radius: 30px;
+  width: 10%;
+  font-size: 1em;
+  margin: 2em;
 }
 
 .whale {
   width: 20%;
+}
+
+.question_comment_box {
+  border: 2px dotted #2A4166;
+  width: 50%;
+  margin: auto;
+  font-size: .85em;
 }

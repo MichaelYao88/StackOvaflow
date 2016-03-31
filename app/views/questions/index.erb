@@ -1,15 +1,15 @@
-
 <p>
+<div class="post_question"><a href= "/questions/new">Post a Question!</a></div>
 <%@questions.each do |question| %>
   <br>
-  <section class = "parent">
+  <section class ="parent">
     <span class="upvotes"><%= vote_total(question) %></span>
 
-    <a href="/upboat/questions/<%= question.id%>" class="upboat">^UP IMG^</a>
+    <a href="/upboat/questions/<%= question.id%>" class="upboat">🐳</a>
 
     <a href="/questions/<%=question.id%>" class="question-link"><%=question.question_title%></a>
 
-    <a href="/downboat/questions/<%= question.id%>" class="downboat">vDOWN IMGv</a>
+    <a href="/downboat/questions/<%= question.id%>" class="downboat">🗡</a>
 
       <% if current_user && current_user == question.questioner %>
         <form class='delete' method="post" action="/questions/<%=question.id%>">
@@ -20,7 +20,7 @@
 
     <br>
 
-      <div>Answers <%= question.answers.count %></div>
+      <div>answers: <%= question.answers.count %></div>
       <br>
   </section>
   <%end%>
