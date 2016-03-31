@@ -12,11 +12,14 @@
   </tr>
 </table>
 </div>
-  <p class='body'><%=@question.question_body%></p>
+
+<p class='body'><%=@question.question_body%></p>
     <% if current_user == @question.questioner %>
       <a href='<%= @question.id %>/edit' class="edit-link">edit</a>
     <% end %>
-  <p>by: <%=@question.questioner.name%></p>
+  
+<p>by: <%=@question.questioner.name%></p>
+
     <form action='/questions/<%= @question.id %>/answers/new' method='get'>
       <input class='button' type='submit' value='answer'>
     </form>
@@ -81,8 +84,8 @@
         <li class='answertext'><%=answer.text%> <span id="author">-<%=answer.answerer.name%></span></li>
       </td>
   
+  <!-- if you are teh answerer give options -->
   <% if answer.answerer == current_user %>
-  
       <td>
           <form action='/answers/<%= answer.id %>/edit' method='get'>
           <input class ='button' type='submit' value='edit post'>
@@ -94,15 +97,25 @@
           <input class='button' type='submit' value='delete post'>
           </form>
       </td>
-    <% end %>
-    <td>
-     <form action='/answers/<%= answer.id %>/comments/new' method='get' class="comment">
+  <% end %>
+ 
+      <td>
+      <form action='/answers/<%= answer.id %>/comments/new' method='get' class="comment">
       <input class='button' type='submit' value='comment'>
     </form>
     </td>
   </tr>
   </table>
 
+  <!--user favorite button  -->
+  <% if @question.questioner == current_user %>
+    <section class = "fav_container">
+      <form class='favorite_pick' action='/answers/<%= answer.id %>' method='post'>
+      <input type='hidden' name='_method' value='puts'>
+      <input class ='button' type='submit' value='favorite post'>
+      </form>
+    </section>
+  <% end %>
 
     
   </div>

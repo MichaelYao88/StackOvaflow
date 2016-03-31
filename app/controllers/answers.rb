@@ -22,6 +22,18 @@ get '/questions/:question_id/answers/:id/edit' do
   erb :'answers/_edit'
 end
 
+
+get '/answers/:id' do
+  @answer = Answer.find(params[:id])
+  question= @answer.question
+  question.answers.each do |answer|
+    answer.update!(best_answer: false)
+  end
+  @answer.update!(best_answer: true)
+  if request.xhr?
+  end
+end
+
 delete '/questions/:question_id/answers/:id' do
   p "hahahahahahahahhahah"
   answer = Answer.find(params[:id])

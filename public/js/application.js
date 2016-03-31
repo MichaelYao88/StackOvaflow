@@ -41,6 +41,23 @@ $(document).ready(function() {
     });
   });
 
+  $(".fav_container").on("submit", '.favorite_pick', function(event){
+      event.preventDefault();
+      $('.best_answer').removeClass('best_answer');
+      var $that = $(this);
+      var url = $that.attr('action');
+
+      request = $.ajax({
+        url: url,
+        method: 'GET'
+      })
+      request.done(function(response){
+        $that.closest('.parent').addClass('best_answer');
+
+      });
+
+  }); // 
+
 
 
 

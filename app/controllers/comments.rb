@@ -45,7 +45,7 @@ end
 
 delete '/comments/:id' do
   p comment = Comment.find_by(id: params[:id])
-  # question = comment.question
+  # question = comment.question 
   comment.destroy
   if request.xhr?
   else
