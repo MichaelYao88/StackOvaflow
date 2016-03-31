@@ -3,7 +3,7 @@ get '/questions/new' do
     erb :'questions/new'
   else
     @errors = ["please log in"]
-  erb :'questions/index'
+    erb :'session/new'
   end
 end
 
