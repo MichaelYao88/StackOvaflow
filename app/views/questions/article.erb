@@ -1,12 +1,30 @@
-<h1 class='title'><%=@question.question_title%></h1>
+<div class='parent'>
+<table>
+  <tr>
+    <td>
+      <a href="/upboat/questions/<%= @question.id%>" class="upboat">🐳</a>
+      <span class="upvotes"><%= vote_total(@question) %></span>
+      <a href="/downboat/questions/<%= @question.id%>" class="downboat">🗡</a>
+    </td>
+    <td>
+      <h1 class='title'><%=@question.question_title%></h1>
+    </td>
+  </tr>
+</table>
+</div>
+  <p class='body'><%=@question.question_body%></p>
+    <% if current_user == @question.questioner %>
+      <a href='<%= @question.id %>/edit' class="edit-link">edit</a>
+    <% end %>
+  <p>by: <%=@question.questioner.name%></p>
+    <form action='/questions/<%= @question.id %>/answers/new' method='get'>
+      <input class='button' type='submit' value='answer'>
+    </form>
+  <a class='commentques' href="/questions/<%= @question.id %>/comments/new">comment</a>
 
-<p class='body'><%=@question.question_body%>
-<form action='/questions/<%= @question.id %>/answers/new' method='get'>
-  <input class='button' type='submit' value='answer'>
-</form>
-<a href="/questions/<%= @question.id %>/comments/new">comment</a>
 <div class='question_comment_box'>
-<% @question.comments.each do |comment| %>
+  <p>comments:</p>
+  <% @question.comments.each do |comment| %>
 
   <div class = "parent" >
   <ul class='question_comment'>
@@ -40,12 +58,10 @@
 </div>
 
 
-<% if current_user == @question.questioner %>
-  <a href='<%= @question.id %>/edit' class="edit-link">Edit</a>
-<% end %>
+
 </p>
 
-
+<h2>Answers</h2>
 <%@question.answers.each do |answer|%>
 
 
@@ -62,7 +78,7 @@
       <a href="/downboat/answers/<%= answer.id%>" class="downboat">🗡</a>
     </td>
     <td>
-      <li><%=answer.text%> <span id="author">-<%=answer.answerer.name%></span></li>
+      <li class='answertext'><%=answer.text%> <span id="author">-<%=answer.answerer.name%></span></li>
     </td>
     <% if answer.answerer == current_user %>
       <td>
@@ -96,8 +112,11 @@
 </ul>
 
 
-<div >
+<% unless answer.comments.empty? %>
+<div>
+
     <ul class='answer_comments'>
+    <li>comments:</li>
     <% answer.comments.each do |comment|%>
 
     <div class="parent">
@@ -107,12 +126,13 @@
         <%=comment.text%> <span id="author">-<%=comment.commenter.name%></span>
       </li>
     </div>
-
     <%end%>
     </ul>
     </div>
+<%end%>
 
 <%end%>
+
 
 
 
