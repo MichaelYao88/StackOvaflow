@@ -1,6 +1,6 @@
 <form method = "post" action="/questions/<%= @question.id %>/answers/<%= @answer.id %>">
   <input type="hidden" name= "_method" value="put">
   <input type="text" name="text" value="<%= @answer.text %>">
-  <input type="submit" value="Edit Answer">
+  <input class='button' type="submit" value="Edit Answer">
 </form>
 

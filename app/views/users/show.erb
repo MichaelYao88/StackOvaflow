@@ -1,18 +1,18 @@
 <h1><%=current_user.name %></h1>
 <table class='profilepage'>
     <tr>
-      <td><h3 class='profile'>your questions</h3></td>
-      <td><h3 class='profile'>your answers</h3></td>
+      <td class='profile'><h3 class='profile'>your questions</h3></td>
+      <td class='profile'><h3 class='profile'>your answers</h3></td>
     </tr>
     <tr>
-      <td>
+      <td class='profile'>
       <% @questions.each do |question| %>
         <p><a href= "/questions/<%= question.id %>"><%= question.question_title %></a></p>
       <% end %>
       </td>
-      <td>
+      <td class='profile'>
       <% @answers.each do |answer| %>
-        <p><%= answer.text %></p>
+        <p><a href='/questions/<%= answer.question.id %>'><%= answer.text %></a></p>
       <% end %>
       </td>
     </tr>
