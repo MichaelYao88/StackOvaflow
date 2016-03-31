@@ -8,7 +8,7 @@
 <div class='question_comment_box'>
 <% @question.comments.each do |comment| %>
 <ul class='question_comment'>
-  <li><%= comment.text %><a href="/comments/<%=comment.id%>/edit" > edit</a></li>
+  <li ><%= comment.text %><a class='editbutton' href="/comments/<%=comment.id%>/edit" > edit</a></li>
  </ul>
 <% end %>
 </div>
@@ -38,12 +38,11 @@
     </td>
 
     <td>
-          <form action='/answers/<%= answer.id %>/edit' method='get'>
+      <form action='/answers/<%= answer.id %>/edit' method='get'>
       <input class ='button' type='submit' value='edit post'>
     </form>
     </td>
     <td>
-
     <form action='/answers/<%= answer.id %>' method='post' class="delete">
       <input type='hidden' name="_method" value="delete">
       <input class='button' type='submit' value='delete post'>
@@ -60,7 +59,6 @@
 
 <div>
     <ul class='answer_comments'>
-
     <% answer.comments.each do |comment|%>
       <li><%=comment.text%> <span id="author">-<%=comment.commenter.name%></span></li>
     <%end%>
