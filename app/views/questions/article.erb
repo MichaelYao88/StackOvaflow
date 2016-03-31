@@ -40,12 +40,14 @@
 <%@question.answers.each do |answer|%>
 
 
-<div class ="parent">
+
 <ul class='answer'>
-<div class='vote'>
+  <div class='vote'>
+  <section class ="parent">
   <table>
     <tr>
     <td>
+
       <a href="/upboat/answers/<%= answer.id%>" class="upboat">🐳</a>
       <span class="upvotes"><%= vote_total(answer) %></span>
       <a href="/downboat/answers/<%= answer.id%>" class="downboat">🗡</a>
@@ -80,24 +82,27 @@
   </table>
 
 
+    </section>
+  </div>
+</ul>
 
-   </div>
-  </ul>
 
-
-<div>
+<div >
     <ul class='answer_comments'>
     <% answer.comments.each do |comment|%>
-      <li><a class=".upboat">🐳</a>
-        <span class="comment_vote">  </span>
-        <a href="#">🗡</a>
+
+    <div class="parent">
+      <li><a href="/upboat/comments/<%= comment.id%>" class="upboat">🐳</a>
+        <span class="upvotes"><%= vote_total(comment) %> </span>
+        <a href="/downboat/comments/<%= comment.id%>" class="downboat">🗡</a>
         <%=comment.text%> <span id="author">-<%=comment.commenter.name%></span>
       </li>
+    </div>
 
     <%end%>
     </ul>
     </div>
-    </div>
+
 <%end%>
 
 
