@@ -1,3 +1,16 @@
+<table>
+  <tr>
+    <td>
+      <a href="/upboat/questions/<%= @question.id%>" class="upboat">🐳</a>
+      <span class="upvotes"><%= vote_total(@question) %></span>
+      <a href="/downboat/questions/<%= @question.id%>" class="downboat">🗡</a>
+    </td>
+    <td>
+      <h1 class='title'><%=@question.question_title%></h1>
+    </td>
+  </tr>
+</table>
+  <h3><%=@question.question_body%></h3>
 <form method = "post" action="/questions/<%= @question.id %>/comments">
   <input type="text" name="comment_text" placeholder="Comment here" >
   <input class='button' type="submit" value="Comment">

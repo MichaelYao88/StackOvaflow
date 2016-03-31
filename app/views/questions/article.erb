@@ -42,10 +42,11 @@
       <% if comment.commenter == current_user %>
       
       <a class='editbutton' href="/comments/<%=comment.id%>/edit" > edit</a>
-        <form class='delete' method="post" action="/comments/<%=comment.id%>">
+      
+      <form class='delete' method="post" action="/comments/<%=comment.id%>">
         <input type="hidden" name="_method" value="delete">
         <input type="submit" class="comment_delete" value="delete">
-        </form>
+      </form>
 
     </li>
       <% end %>
@@ -65,22 +66,23 @@
 <%@question.answers.each do |answer|%>
 
 
-
+<section class ="parent">
 <ul class='answer'>
   <div class='vote'>
-  <section class ="parent">
+  
   <table>
     <tr>
-    <td>
-
-      <a href="/upboat/answers/<%= answer.id%>" class="upboat">🐳</a>
-      <span class="upvotes"><%= vote_total(answer) %></span>
-      <a href="/downboat/answers/<%= answer.id%>" class="downboat">🗡</a>
-    </td>
-    <td>
-      <li class='answertext'><%=answer.text%> <span id="author">-<%=answer.answerer.name%></span></li>
-    </td>
-    <% if answer.answerer == current_user %>
+      <td>
+        <a href="/upboat/answers/<%= answer.id%>" class="upboat">🐳</a>
+        <span class="upvotes"><%= vote_total(answer) %></span>
+        <a href="/downboat/answers/<%= answer.id%>" class="downboat">🗡</a>
+      </td>
+      <td>
+        <li class='answertext'><%=answer.text%> <span id="author">-<%=answer.answerer.name%></span></li>
+      </td>
+  
+  <% if answer.answerer == current_user %>
+  
       <td>
           <form action='/answers/<%= answer.id %>/edit' method='get'>
           <input class ='button' type='submit' value='edit post'>
@@ -93,12 +95,7 @@
           </form>
       </td>
     <% end %>
-
-
-    <form action='/answers/<%= answer.id %>' method='post' class="delete">
-      <input type='hidden' name="_method" value="delete">
-      <input class='button' type='submit' value='delete post'>
-    </form>
+    <td>
      <form action='/answers/<%= answer.id %>/comments/new' method='get' class="comment">
       <input class='button' type='submit' value='comment'>
     </form>
@@ -107,7 +104,7 @@
   </table>
 
 
-    </section>
+    
   </div>
 </ul>
 
@@ -126,10 +123,13 @@
         <%=comment.text%> <span id="author">-<%=comment.commenter.name%></span>
       </li>
     </div>
+
     <%end%>
+
     </ul>
     </div>
 <%end%>
+</section>
 
 <%end%>
 
