@@ -7,6 +7,11 @@ body: <%=@question.question_body%>
 <br>
 <ul>
 <%@question.answers.each do |answer|%>
+  <!-- upvote/downvote buttons for answers -->
+  <a href="/upboat/answers/<%= answer.id%>" class="upboat">^UP^</a>
+  <span class="upvotes"><%= vote_total(answer) %></span>
+  <a href="/downboat/answers/<%= answer.id%>" class="downboat">vDOWNv</a>
+
   <li>ANSWER: <%=answer.text%> -- <%=answer.answerer.name%></li>
   <li>
     <form action='/questions/<%= @question.id %>/answers/<%= answer.id %>/edit' method='get'>
