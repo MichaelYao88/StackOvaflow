@@ -11,6 +11,7 @@
     application.css is where you put your styles
   -->
   <link rel="stylesheet" href="/css/application.css">
+  <link href='https://fonts.googleapis.com/css?family=Fredoka+One|Karla' rel='stylesheet' type='text/css'>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
@@ -18,7 +19,9 @@
   <title></title>
 </head>
 <body>
-    <header class="header"> HUMPBACK OVERFLOW</header>
+
+    <header class="header"><img class='logo' src="/images/logo.jpg" alt="logo"></header>
+
     <ul class="nav">
       <% if logged_in? %>
       <li><a href='/'>Home</a></li>
@@ -29,6 +32,7 @@
         <li><a href="/users/new">Register</a></li>
       <% end %>
     </ul>
+    <div class='container'>
     <%= erb :_errors, locals: { errors: @errors } %>
     <br>
     <div class="post_question"><a href= "/questions/new">Post a Question!</a></div>
@@ -36,6 +40,7 @@
   <%= yield %>
 
 
-    <img src="/images/whale.png" alt="whale">
+    <img class='whale' src="/images/whale.png" alt="whale">
+  </div>
   </body>
 </html>

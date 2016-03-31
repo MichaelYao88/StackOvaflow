@@ -1,20 +1,21 @@
-title: <%=@question.question_title%>
-<br>
-body: <%=@question.question_body%>
+<h1 class='title'><%=@question.question_title%></h1>
+
+<p class='body'><%=@question.question_body%>
 <% if current_user == @question.questioner %>
   <a href='<%= @question.id %>/edit' class="edit-link">Edit</a>
 <% end %>
-<br>
+</p>
+
 <ul>
 <%@question.answers.each do |answer|%>
-  <li>ANSWER: <%=answer.text%> -- <%=answer.answerer.name%></li>
+  <li class='answer'>ANSWER: <%=answer.text%> -- <%=answer.answerer.name%></li>
   <li>
     <form action='/questions/<%= @question.id %>/answers/<%= answer.id %>/edit' method='get'>
-      <input type='submit' value='edit post'>
+      <input class ='button' type='submit' value='edit post'>
     </form>
     <form action='/questions/<%= @question.id %>/answers/<%= answer.id %>' method='post'>
       <input type='hidden' name="_method" value="delete">
-      <input type='submit' value='delete post'>
+      <input class='button' type='submit' value='delete post'>
     </form>
   </li>
     <ul>
@@ -26,7 +27,7 @@ body: <%=@question.question_body%>
 </ul>
 
 <form action='/questions/<%= @question.id %>/answers/new' method='get'>
-  <input type='submit' value='answer post!'>
+  <input class='button' type='submit' value='answer post!'>
 </form>
 
 
