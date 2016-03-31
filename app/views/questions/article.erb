@@ -4,10 +4,11 @@
 <form action='/questions/<%= @question.id %>/answers/new' method='get'>
   <input class='button' type='submit' value='answer'>
 </form>
+<a href="/questions/<%= @question.id %>/comments/new">comment</a>
 <div class='question_comment_box'>
 <% @question.comments.each do |comment| %>
 <ul class='question_comment'>
-  <li><%= comment.text %><a href="/comments/<%=comment.id%>/edit" > edit</a><a href="/questions/<%= @question.id %>/comments/new"> reply</a></li>
+  <li><%= comment.text %><a href="/comments/<%=comment.id%>/edit" > edit</a></li>
  </ul>
 <% end %>
 </div>
