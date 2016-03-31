@@ -1,3 +1,7 @@
+body {
+  text-align: center;
+}
+
 .question-link {
   font-size: 2em;
   color: #4C4CFF;
@@ -18,4 +22,33 @@ a:hover {
 .error {
   font-size: 3em;
   font-weight: bold;
+}
+
+li a:hover {
+  background-color: #BBFFFF;
+}
+
+.header {
+  font-size: 2em;
+  background-color: #BBFFFF;
+  color:black;
+  text-align:center;
+  padding:5px;
+}
+
+.nav {
+  border:1px solid #ccc;
+  border-width:1px 0;
+  list-style:none;
+  margin:0;
+  padding:0;
+  text-align:center;
+}
+
+.nav li {
+  display:inline;
+}
+.nav a {
+  display:inline-block;
+  padding:10px;
 }
