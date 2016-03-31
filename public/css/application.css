@@ -245,3 +245,9 @@ td.profile {
   padding: .5em;
   border-radius: 20px;
 }
+
+.best_answer {
+  border: 2px dotted #EA867A;
+  padding: 1em;
+  border-radius: 20px;
+}
