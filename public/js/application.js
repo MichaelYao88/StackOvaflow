@@ -42,6 +42,12 @@ $(document).ready(function() {
   });
 
 
+  $('.answerform').on('submit', function( event ){
+    event.preventDefault();
+    $(this).hide();
+    $(this).closest('.answers').find('.hiddenform').removeClass('hiddenform');
+  });
+
 
 
 });
