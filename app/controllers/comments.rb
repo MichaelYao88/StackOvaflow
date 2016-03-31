@@ -43,9 +43,9 @@ put '/comments/:id' do
 	redirect "/questions/#{@question}"
 end
 
-delete 'comments/:id' do
-  comment = Comment.find_by(id: params[:id])
-  question = comment.question
+delete '/comments/:id' do
+  p comment = Comment.find_by(id: params[:id])
+  # question = comment.question
   comment.destroy
   if request.xhr?
   else
