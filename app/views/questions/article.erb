@@ -18,8 +18,12 @@
 <% end %>
 </p>
 
-<ul class='answer'>
+
 <%@question.answers.each do |answer|%>
+
+
+<div class ="parent">
+<ul class='answer'>
 <div class='vote'>
   <table>
     <tr>
@@ -33,12 +37,13 @@
     </td>
 
     <td>
-      <form action='/questions/<%= @question.id %>/answers/<%= answer.id %>/edit' method='get'>
+          <form action='/answers/<%= answer.id %>/edit' method='get'>
       <input class ='button' type='submit' value='edit post'>
     </form>
     </td>
     <td>
-       <form action='/questions/<%= @question.id %>/answers/<%= answer.id %>' method='post'>
+
+    <form action='/answers/<%= answer.id %>' method='post' class="delete">
       <input type='hidden' name="_method" value="delete">
       <input class='button' type='submit' value='delete post'>
     </form>
@@ -47,25 +52,23 @@
   </table>
 
 
-  <!-- upvote/downvote buttons for answers -->
 
-  <li>
-
-
-  </li>
    </div>
   </ul>
 
 
 <div>
     <ul class='answer_comments'>
+
     <% answer.comments.each do |comment|%>
       <li><%=comment.text%> <span id="author">-<%=comment.commenter.name%></span></li>
     <%end%>
     </ul>
-    <%end%>
-</ul>
-</div>
+    </div>
+    </div>
+<%end%>
+
+
 
 
 
