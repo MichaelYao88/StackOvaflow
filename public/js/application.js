@@ -26,4 +26,14 @@ $(document).ready(function() {
       $that.closest('.parent').find('.upvotes').text(data);
     });
   });
+
+  $('.btn btn-link').on('click', function(event){
+    event.preventDefault();
+    $.ajax({
+      type: 'DELETE'
+      url: '/questions'
+    })
+  });
 });
+
+
