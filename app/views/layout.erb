@@ -20,8 +20,8 @@
 <body>
     <header class="header"> HUMPBACK OVERFLOW</header>
     <ul class="nav">
-      <% if logged_in? %>
       <li><a href='/'>Home</a></li>
+      <% if logged_in? %>
         <li><a href='/users/show'><%= current_user.name %></a></li>
         <li><a href='/logout'>Log Out</a></li>
       <% else %>

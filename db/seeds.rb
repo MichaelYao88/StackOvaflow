@@ -1,3 +1,6 @@
+require 'Faker'
+
+#hard coded seeds
 whaley_wonka = User.create!(name: "Whaley Wonka", password: "password");
 whalliam = User.create!(name: "Whalliam", password: "password");
 bruce = User.create!(name: "Bruce Whallis", password: "password");
@@ -12,3 +15,48 @@ question2 = whalliam.questions.create!(question_title: "What do whales eat?", qu
 answer2 = question2.answers.create!(answerer: bruce, text: "Fish and ships?"  )
 comment2 = answer2.comments.create!(commenter: whaley_wonka, text: "I don't know what?")
 vote2 = comment2.votes.create!(voter: bruce, value: 1)
+
+
+#create 10 new users at random
+10.times do
+  User.create!({
+      name: Faker::Superhero.name,
+      password: "password"
+    })
+end
+
+
+#create 10 new questions
+10.times do
+  user = User.all.sample
+  user.questions.create!({
+      question_title: Faker::Hacker.adjective + " " + Faker::Hipster.word,
+      question_body: Faker::Hipster.sentence
+    })
+end
+
+100.times do
+  user = User.all.sample
+  question = Question.all.sample
+  question.answers.create!({
+    answerer: user,
+    text: Faker::Lorem.sentence
+    })
+end
+
+100.times do
+  user = User.all.sample
+  question = Question.all.sample
+  answer = Answer.all.sample
+  question.comments.create!({
+    text: Faker::Hipster.sentence,
+    commenter: user
+    })
+
+  answer.comments.create!({
+    text: Faker::Hipster.sentence,
+    commenter: user
+    })
+end
+
+
