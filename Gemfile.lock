@@ -28,7 +28,7 @@ GEM
     diff-lcs (1.2.5)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
-    faker (1.4.3)
+    faker (1.6.3)
       i18n (~> 0.5)
     i18n (0.7.0)
     json (1.8.2)
@@ -95,7 +95,7 @@ DEPENDENCIES
   bcrypt
   capybara
   factory_girl
-  faker
+  faker (~> 1.6.3)
   pg
   pry
   rack-test
