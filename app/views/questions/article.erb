@@ -17,13 +17,33 @@
     <% if current_user == @question.questioner %>
       <a href='<%= @question.id %>/edit' class="edit-link">edit</a>
     <% end %>
-  
-<p>by: <%=@question.questioner.name%></p>
 
-    <form action='/questions/<%= @question.id %>/answers/new' method='get'>
+  <p>by: <%=@question.questioner.name%></p>
+
+
+<article class='answers'>
+    <form class='answerform' action='' method='get'>
+      <input class='button' type='submit' value='comment'>
+    </form>
+  <form class ='hiddenform postanswer'method = "post" action="/questions/<%= @question.id %>/comments">
+    <input type="text" name="comment_text" placeholder="Comment here" >
+    <input class='button' type="submit" value="Comment">
+  </form>
+
+</article>
+
+
+<article class='answers'>
+    <form class='answerform' action='' method='get'>
       <input class='button' type='submit' value='answer'>
     </form>
-  <a class='commentques' href="/questions/<%= @question.id %>/comments/new">comment</a>
+  <form class='hiddenform postanswer' method = "post" action="/questions/<%= @question.id %>/answers">
+    <textarea type= "text" name= "text" rows="3" cols="50" placeholder="Answer"></textarea>
+    <br>
+    <input class='button' type="submit" value="Post Your Answer">
+  </form>
+
+</article>
 
 <div class='question_comment_box'>
   <p>comments:</p>
@@ -43,9 +63,9 @@
         </section>
 
       <% if comment.commenter == current_user %>
-      
+
       <a class='editbutton' href="/comments/<%=comment.id%>/edit" > edit</a>
-      
+
       <form class='delete' method="post" action="/comments/<%=comment.id%>">
         <input type="hidden" name="_method" value="delete">
         <input type="submit" class="comment_delete" value="delete">
@@ -72,7 +92,7 @@
 <section class ="parent">
 <ul class='answer'>
   <div class='vote'>
-  
+
   <table>
     <tr>
       <td>
@@ -83,9 +103,11 @@
       <td>
         <li class='answertext'><%=answer.text%> <span id="author">-<%=answer.answerer.name%></span></li>
       </td>
+
   
   <!-- if you are teh answerer give options -->
   <% if answer.answerer == current_user %>
+
       <td>
           <form action='/answers/<%= answer.id %>/edit' method='get'>
           <input class ='button' type='submit' value='edit post'>
@@ -117,7 +139,7 @@
     </section>
   <% end %>
 
-    
+
   </div>
 </ul>
 
