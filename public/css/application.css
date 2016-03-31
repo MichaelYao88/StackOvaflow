@@ -48,7 +48,6 @@ a {
 
 .answer {
   color: #1A69E5;
-  font-size: 1.5em;
   text-align: center;
   margin: auto;
 }
@@ -64,47 +63,22 @@ a {
   text-align: center;
 }
 
+.vote {
+  text-align: center;
+  margin: auto;
+}
+
+table {
+  text-align: center;
+  margin: auto;
+  color: #1A69E5;
+}
+
 .button:hover {
   background-color: #69A4FF;
   padding: 5px;
   border-radius: 20px;
 }
-
-/*.add_question_commment {
-  background-color: #1A69E5;
-  border-radius: 20px;
-  text-align: center;
-  border: none;
-  margin: 3px;
-  padding: 5px;
-  font-size: .8em;
-  width: 7%;
-  text-align: center;
-  margin: auto;
-}
-
-.add_question_commment a {
-  color: white;
-  background-color: #1A69E5;
-  border-radius: 20px;
-  text-align: center;
-  border: none;
-  margin: 3px;
-  padding: 2px;
-  width: 7%;
-  text-align: center;
-  margin: auto;
-}
-
-.add_question_commment:hover {
-  background-color: #69A4FF;
-}*/
-
-
-
-/*li a:hover {
-  background-color: #BBFFFF;
-}*/
 
 .header {
   text-align: left;
@@ -168,11 +142,34 @@ a {
 
 .whale {
   width: 20%;
+  text-align: center;
+  margin: auto;
 }
 
 .question_comment_box {
   border: 2px dotted #2A4166;
   width: 50%;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
   font-size: .85em;
+  text-align: left;
+  line-height: 50%;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.answer_comments {
+  border: 1px dotted #2A4166;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: .85em;
+  text-align: left;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+#author {
+  color: #1452B2;
+  font-size: .8em;
 }
