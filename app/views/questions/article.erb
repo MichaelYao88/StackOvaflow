@@ -17,16 +17,30 @@
       <a href='<%= @question.id %>/edit' class="edit-link">edit</a>
     <% end %>
   <p>by: <%=@question.questioner.name%></p>
+
+
 <article class='answers'>
-    <form class='answerform' action='/questions/<%= @question.id %>/answers/new' method='get'>
+    <form class='answerform' action='' method='get'>
+      <input class='button' type='submit' value='comment'>
+    </form>
+  <form class ='hiddenform postanswer'method = "post" action="/questions/<%= @question.id %>/comments">
+    <input type="text" name="comment_text" placeholder="Comment here" >
+    <input class='button' type="submit" value="Comment">
+  </form>
+
+</article>
+
+
+<article class='answers'>
+    <form class='answerform' action='' method='get'>
       <input class='button' type='submit' value='answer'>
     </form>
-  <a class='commentques' href="/questions/<%= @question.id %>/comments/new">comment</a>
   <form class='hiddenform postanswer' method = "post" action="/questions/<%= @question.id %>/answers">
     <textarea type= "text" name= "text" rows="3" cols="50" placeholder="Answer"></textarea>
     <br>
     <input class='button' type="submit" value="Post Your Answer">
   </form>
+
 </article>
 
 <div class='question_comment_box'>
