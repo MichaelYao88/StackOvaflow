@@ -2,7 +2,7 @@
 <%@questions.each do |question| %>
   <br>
   <section class = "parent">
-    <span class="upvotes"><%= question.votes.count %></span>
+    <span class="upvotes"><%= vote_total(question) %></span>
 
     <a href="/upboat/questions/<%= question.id%>" class="upboat">^UP IMG^</a>
 
