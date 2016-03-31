@@ -26,4 +26,20 @@ $(document).ready(function() {
       $that.closest('.parent').find('.upvotes').text(data);
     });
   });
+
+  $('.delete').on('submit', function(event){
+    event.preventDefault();
+    var $that = $(this)
+    var url = $that.attr('action')
+    console.log(url)
+
+    $.ajax({
+      type: 'DELETE',
+      url: url
+    }).done(function(data){
+      $that.closest('.parent').remove()
+    });
+  });
 });
+
+

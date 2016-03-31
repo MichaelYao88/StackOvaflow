@@ -1,8 +1,9 @@
+
 <p>
-<%Question.all.each do |question| %>
+<%@questions.each do |question| %>
   <br>
   <section class = "parent">
-    <span class="upvotes"><%= question.votes.count %></span>
+    <span class="upvotes"><%= vote_total(question) %></span>
 
     <a href="/upboat/questions/<%= question.id%>" class="upboat">^UP IMG^</a>
 
@@ -10,11 +11,11 @@
 
     <a href="/downboat/questions/<%= question.id%>" class="downboat">vDOWN IMGv</a>
 
-    <% if current_user == question.questioner %>
-      <form method="post" action="/questions/<%=question.id%>">
-      <input type="hidden" name="_method" value="delete">
-      <input type="submit" class="btn btn-link" value="Delete">
-      </form>
+      <% if current_user && current_user == question.questioner %>
+        <form class='delete' method="post" action="/questions/<%=question.id%>">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" class="deletebutton" value="Delete">
+        </form>
     <% end %>
 
     <br>
@@ -24,4 +25,3 @@
   </section>
   <%end%>
 </p>
-
