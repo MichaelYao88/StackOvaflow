@@ -18,23 +18,24 @@
   <title></title>
 </head>
 <body>
-  <nav>
-    <ul>
+    <header class="header"> HUMPBACK OVERFLOW</header>
+    <ul class="nav">
       <% if logged_in? %>
+      <li><a href='/'>Home</a></li>
         <li><a href='/users/show'><%= current_user.name %></a></li>
         <li><a href='/logout'>Log Out</a></li>
       <% else %>
         <li><a href="/session/new">Login</a></li>
         <li><a href="/users/new">Register</a></li>
       <% end %>
-      <li><a href='/'>Home</a></li>
     </ul>
     <%= erb :_errors, locals: { errors: @errors } %>
     <br>
     <div class="post_question"><a href= "/questions/new">Post a Question!</a></div>
-  </nav>
   <br>
   <%= yield %>
-  <img src="/images/whale.png" alt="whale">
-</body>
+
+
+    <img src="/images/whale.png" alt="whale">
+  </body>
 </html>

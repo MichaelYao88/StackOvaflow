@@ -2,9 +2,12 @@
 <%Question.all.each do |question| %>
   <br>
   <section class = "parent">
-    <span class = "upvotes"><%= question.votes.count %></span>
+    <span class="upvotes"><%= question.votes.count %></span>
+
     <a href="/upboat/questions/<%= question.id%>" class="upboat">^UP IMG^</a>
+
     <a href="/questions/<%=question.id%>" class="question-link"><%=question.question_title%></a>
+
     <a href="/downboat/questions/<%= question.id%>" class="downboat">vDOWN IMGv</a>
 
     <% if current_user == question.questioner %>

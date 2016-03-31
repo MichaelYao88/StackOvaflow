@@ -12,4 +12,3 @@ question2 = whalliam.questions.create!(question_title: "What do whales eat?", qu
 answer2 = question2.answers.create!(answerer: bruce, text: "Fish and ships?"  )
 comment2 = answer2.comments.create!(commenter: whaley_wonka, text: "I don't know what?")
 vote2 = comment2.votes.create!(voter: bruce, value: 1)
-
