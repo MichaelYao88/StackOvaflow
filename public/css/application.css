@@ -20,6 +20,11 @@
   font-size: .85em;
 }
 
+.editbutton {
+  font-weight: bold;
+  font-size: .85em;
+}
+
 .container {
   font-family: 'Karla', sans-serif;
   /*border: 2px dotted #2A4166;*/
@@ -147,7 +152,7 @@ table {
 }
 
 .question_comment_box {
-  border: 2px dotted #2A4166;
+  border: 1px dotted #2A4166;
   width: 50%;
   margin-left: auto;
   margin-right: auto;
@@ -167,11 +172,24 @@ table {
   text-align: left;
   margin-top: 1.5em;
   margin-bottom: 1.5em;
+  background-color: #D3F2FF;
 }
 
 #author {
   color: #1452B2;
   font-size: .8em;
+}
+
+
+.profile {
+  font-size: 1.5em;
+}
+
+td {
+  text-align: left;
+}
+
+.profilepage {
 }
 
 .comment_delete {
@@ -183,4 +201,5 @@ table {
    margin-left: .3em;
    /*border is optional*/
    cursor: pointer;
+
 }

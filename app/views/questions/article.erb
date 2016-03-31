@@ -7,6 +7,7 @@
 <a href="/questions/<%= @question.id %>/comments/new">comment</a>
 <div class='question_comment_box'>
 <% @question.comments.each do |comment| %>
+
   <div class = "parent" >
   <ul class='question_comment'>
 
@@ -14,7 +15,7 @@
       <% if comment.commenter == current_user %>
       <table>
       <tr>
-      <a href="/comments/<%=comment.id%>/edit" > edit</a>
+      <a class='editbutton' href="/comments/<%=comment.id%>/edit" > edit</a>
         <form class='delete' method="post" action="/comments/<%=comment.id%>">
         <input type="hidden" name="_method" value="delete">
         <input type="submit" class="comment_delete" value="delete">
@@ -65,6 +66,7 @@
           </form>
       </td>
     <% end %>
+
   </tr>
   </table>
 
@@ -76,7 +78,6 @@
 
 <div>
     <ul class='answer_comments'>
-
     <% answer.comments.each do |comment|%>
       <li><%=comment.text%> <span id="author">-<%=comment.commenter.name%></span></li>
     <%end%>
