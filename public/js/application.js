@@ -27,12 +27,18 @@ $(document).ready(function() {
     });
   });
 
-  $('.btn btn-link').on('click', function(event){
+  $('.delete').on('submit', function(event){
     event.preventDefault();
+    var $that = $(this)
+    var url = $that.attr('action')
+    console.log(url)
+
     $.ajax({
-      type: 'DELETE'
-      url: '/questions'
-    })
+      type: 'DELETE',
+      url: url
+    }).done(function(data){
+      $that.closest('.parent').remove()
+    });
   });
 });
 

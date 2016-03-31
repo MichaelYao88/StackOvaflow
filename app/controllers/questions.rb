@@ -48,7 +48,6 @@ delete '/questions/:id' do
   question = Question.find_by(id: params[:id])
   question.destroy
   if request.xhr?
-
   else
   redirect '/'
   end

@@ -11,9 +11,9 @@
     <a href="/downboat/questions/<%= question.id%>" class="downboat">vDOWN IMGv</a>
 
       <% if current_user && current_user == question.questioner %>
-        <form method="post" action="/questions/<%=question.id%>">
+        <form class='delete' method="post" action="/questions/<%=question.id%>">
         <input type="hidden" name="_method" value="delete">
-        <input type="submit" class="btn btn-link" value="Delete">
+        <input type="submit" class="deletebutton" value="Delete">
         </form>
     <% end %>
 
