@@ -14,7 +14,7 @@
       <% if current_user && current_user == question.questioner %>
         <form class='delete' method="post" action="/questions/<%=question.id%>">
         <input type="hidden" name="_method" value="delete">
-        <input type="submit" class="deletebutton" value="Delete">
+        <input type="submit" class="comment_delete" value="Delete">
         </form>
     <% end %>
 
