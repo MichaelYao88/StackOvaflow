@@ -173,3 +173,14 @@ table {
   color: #1452B2;
   font-size: .8em;
 }
+
+.comment_delete {
+   background:none;
+   border:none;
+   padding:0;
+   font-size: 1em;
+   color: blue;
+   margin-left: .3em;
+   /*border is optional*/
+   cursor: pointer;
+}
