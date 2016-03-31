@@ -11,12 +11,20 @@ body {
   font-size: .85em;
 }
 
-a {
-  text-decoration: none;
+.container {
+  font-family: 'Karla', sans-serif;
+  border: 2px dotted #2A4166;
+  border-width:1px 0;
+  color: #2A4166;
 }
 
-a:hover {
-  color: black;
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #1452B2;
 }
 
 .error {
@@ -24,31 +32,81 @@ a:hover {
   font-weight: bold;
 }
 
-li a:hover {
-  background-color: #BBFFFF;
+.answer {
+  color: #1A69E5;
+  font-size: 1.5em;
 }
 
-.header {
-  font-size: 2em;
+.button {
+  color: white;
+  background-color: #1A69E5;
+  border-radius: 20px;
+  text-align: center;
+  border: none;
+  margin: 3px;
+  padding: 5px;
+  font-size: .8em;
+}
+
+.button:hover {
+  background-color: #69A4FF;
+}
+
+/*li a:hover {
   background-color: #BBFFFF;
-  color:black;
-  text-align:center;
-  padding:5px;
+}*/
+
+.header {
+  text-align: left;
+  padding: 1em;
+  background-color: white;
+}
+
+.logo {
+  width: 20%;
 }
 
 .nav {
-  border:1px solid #ccc;
+  border: 1px dotted #2A4166;
   border-width:1px 0;
-  list-style:none;
-  margin:0;
-  padding:0;
+  list-style: none;
+  margin: 3px;
+  padding: 0;
   text-align:center;
+  background-color: #69A4FF;
 }
 
 .nav li {
   display:inline;
 }
-.nav a {
+
+.nav a, .nav a:visited {
   display:inline-block;
   padding:10px;
+  color: white;
+}
+
+.nav a:hover {
+  background-color: #2A4166;
+  border-radius: 25px;
+}
+
+.post_question {
+  background-color: #1A69E5;
+  width: 10%;
+  color: white;
+  border-radius: 30px;
+  padding: 1em;
+}
+
+.post_question a, .post_question a:visited {
+  color: white;
+}
+
+.post_question a:hover {
+  background-color: #69A4FF;
+}
+
+.whale {
+  width: 20%;
 }
