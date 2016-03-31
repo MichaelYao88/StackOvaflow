@@ -48,6 +48,9 @@
       <input type='hidden' name="_method" value="delete">
       <input class='button' type='submit' value='delete post'>
     </form>
+     <form action='/answers/<%= answer.id %>/comments/new' method='get' class="comment">
+      <input class='button' type='submit' value='comment'>
+    </form>
     </td>
   </tr>
   </table>
@@ -62,7 +65,12 @@
     <ul class='answer_comments'>
 
     <% answer.comments.each do |comment|%>
-      <li><%=comment.text%> <span id="author">-<%=comment.commenter.name%></span></li>
+      <li><a class=".upboat">🐳</a>
+        <span class="comment_vote">  </span>
+        <a href="#">🗡</a>
+        <%=comment.text%> <span id="author">-<%=comment.commenter.name%></span>
+      </li>
+
     <%end%>
     </ul>
     </div>
