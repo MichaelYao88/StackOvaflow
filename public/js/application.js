@@ -23,7 +23,7 @@ $(document).ready(function() {
       url: url
 
     }).done(function(data){
-      $that.closest('.parent').find('.downvotes').text(data);
+      $that.closest('.parent').find('.upvotes').text(data);
     });
   });
 });
