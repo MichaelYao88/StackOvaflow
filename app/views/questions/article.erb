@@ -10,20 +10,29 @@
 
   <div class = "parent" >
   <ul class='question_comment'>
+     <li>
 
-    <li><%= comment.text %>
+        <section class="parent">
+          <table>
+          <tr>
+          <a href="/upboat/comments/<%= comment.id%>" class="upboat">🐳</a>
+            <span class="upvotes"><%= vote_total(comment) %> </span>
+            <a href="/downboat/comments/<%= comment.id%>" class="downboat">🗡</a>
+            <%=comment.text%> <span id="author">-<%=comment.commenter.name%></span>
+        </section>
+
       <% if comment.commenter == current_user %>
-      <table>
-      <tr>
+      
       <a class='editbutton' href="/comments/<%=comment.id%>/edit" > edit</a>
         <form class='delete' method="post" action="/comments/<%=comment.id%>">
         <input type="hidden" name="_method" value="delete">
         <input type="submit" class="comment_delete" value="delete">
         </form>
-      </tr>
-      </table>
-      </li>
+
+    </li>
       <% end %>
+        </tr>
+        </table>
   </ul>
   </div>
 
