@@ -40,6 +40,8 @@ $(document).ready(function() {
       $that.closest('.parent').remove()
     });
   });
+
+
 });
 
 

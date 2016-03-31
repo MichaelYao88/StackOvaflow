@@ -18,7 +18,7 @@
 
 <ul>
 <%@question.answers.each do |answer|%>
-
+  <div class ="parent">
   <li class='answer'>ANSWER: <%=answer.text%> -- <%=answer.answerer.name%></li>
 
   <!-- upvote/downvote buttons for answers -->
@@ -27,10 +27,10 @@
   <a href="/downboat/answers/<%= answer.id%>" class="downboat">vDOWNv</a>
 
   <li>
-    <form action='/questions/<%= @question.id %>/answers/<%= answer.id %>/edit' method='get'>
+    <form action='/answers/<%= answer.id %>/edit' method='get'>
       <input class ='button' type='submit' value='edit post'>
     </form>
-    <form action='/questions/<%= @question.id %>/answers/<%= answer.id %>' method='post'>
+    <form action='/answers/<%= answer.id %>' method='post' class="delete">
       <input type='hidden' name="_method" value="delete">
       <input class='button' type='submit' value='delete post'>
     </form>
@@ -40,6 +40,7 @@
       <li>COMMENT: <%=comment.text%> -- COMMENTER: <%=comment.commenter.name%></li>
     <%end%>
   </ul>
+</div>
 <%end%>
 </ul>
 

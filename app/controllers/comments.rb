@@ -25,6 +25,14 @@ put '/comments/:id' do
 	@comment.update(text: params[:comment_text])
 
 	redirect "/questions/#{@question}"
-
 end
 
+delete 'comments/:id' do
+  comment = Comment.find_by(id: params[:id])
+  question = comment.question
+  comment.destroy
+  if request.xhr?
+  else
+  redirect "/questions/#{question.id}"
+  end
+end

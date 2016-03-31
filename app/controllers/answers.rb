@@ -29,3 +29,12 @@ delete '/questions/:question_id/answers/:id' do
   redirect "/questions/#{params[:question_id]}"
 end
 
+delete '/answers/:id' do
+  answer = Answer.find_by(id: params[:id])
+  question = answer.question
+  answer.destroy
+  if request.xhr?
+  else
+  redirect "/questions/#{question.id}"
+  end
+end
