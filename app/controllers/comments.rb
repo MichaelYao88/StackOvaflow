@@ -3,14 +3,30 @@ get '/questions/:question_id/comments/new' do
  erb :"comments/_new"
 end
 
+get '/answers/:answer_id/comments/new' do
+ @answer = Answer.find(params[:answer_id])
+ erb :"comments/_new_answer"
+end
+
+
 
 post '/questions/:question_id/comments' do
   @question = Question.find(params[:question_id])
   @user = current_user
- 	@new_comment = @question.comments.create(commenter: @user,text: params[:comment_text])
+ 	@new_comment = @question.comments.create(commenter: @user, text: params[:comment_text])
 
 
   redirect "/questions/#{params[:question_id]}"
+end
+
+post '/answers/:answer_id/comments' do
+  @answer = Answer.find(params[:answer_id])
+  @question= @answer.question
+  @user = current_user
+ 	@new_comment = @answer.comments.create(commenter: @user,text: params[:comment_text])
+
+
+  redirect "/questions/#{@question.id}"
 end
 
 get '/comments/:id/edit' do
