@@ -1,6 +1,15 @@
 title: <%=@question.question_title%>
 <br>
-body: <%=@question.question_body%>
+body: <%= @question.question_body %>
+
+<% @question.comments.each do |comment| %>
+<article>
+  <p>QUESTION COMMENT: <%= comment.text %></p>
+
+  <p class="edit_question_comment"><a href="/comments/<%=comment.id%>/edit">Edit Comment</a>
+ </article>   
+<% end %>
+<p class="add_question_commment"><a href="/questions/<%= @question.id %>/comments/new">Comment!</a></p>
 <% if current_user == @question.questioner %>
   <a href='<%= @question.id %>/edit' class="edit-link">Edit</a>
 <% end %>
