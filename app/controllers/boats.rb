@@ -25,7 +25,7 @@ post '/downboat/questions/:id' do
 end
 
 post '/upboat/answers/:id' do
-  answer = Answers.find(params[:id])
+  answer = Answer.find(params[:id])
   vote = answer.votes.find_or_create_by(voter: current_user)
   vote.value = 1
   vote.save
@@ -38,5 +38,14 @@ post '/upboat/answers/:id' do
 end
 
 post '/downboat/answers/:id' do
-
+  answer = Answer.find(params[:id])
+  vote = answer.votes.find_or_create_by(voter: current_user)
+  vote.value = -1
+  vote.save
+  if request.xhr?
+    total = answer.votes.reduce(0){ |sum, votes | sum + votes.value }
+    total.to_s
+  else
+    redirect '/'
+  end
 end
