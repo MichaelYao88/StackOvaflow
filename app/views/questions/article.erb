@@ -7,9 +7,26 @@
 <a href="/questions/<%= @question.id %>/comments/new">comment</a>
 <div class='question_comment_box'>
 <% @question.comments.each do |comment| %>
-<ul class='question_comment'>
-  <li ><%= comment.text %><a class='editbutton' href="/comments/<%=comment.id%>/edit" > edit</a></li>
- </ul>
+
+  <div class = "parent" >
+  <ul class='question_comment'>
+
+    <li><%= comment.text %>
+      <% if comment.commenter == current_user %>
+      <table>
+      <tr>
+      <a class='editbutton' href="/comments/<%=comment.id%>/edit" > edit</a>
+        <form class='delete' method="post" action="/comments/<%=comment.id%>">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" class="comment_delete" value="delete">
+        </form>
+      </tr>
+      </table>
+      </li>
+      <% end %>
+  </ul>
+  </div>
+
 <% end %>
 </div>
 
@@ -36,18 +53,20 @@
     <td>
       <li><%=answer.text%> <span id="author">-<%=answer.answerer.name%></span></li>
     </td>
+    <% if answer.answerer == current_user %>
+      <td>
+          <form action='/answers/<%= answer.id %>/edit' method='get'>
+          <input class ='button' type='submit' value='edit post'>
+          </form>
+      </td>
+      <td>
+          <form action='/answers/<%= answer.id %>' method='post' class="delete">
+          <input type='hidden' name="_method" value="delete">
+          <input class='button' type='submit' value='delete post'>
+          </form>
+      </td>
+    <% end %>
 
-    <td>
-      <form action='/answers/<%= answer.id %>/edit' method='get'>
-      <input class ='button' type='submit' value='edit post'>
-    </form>
-    </td>
-    <td>
-    <form action='/answers/<%= answer.id %>' method='post' class="delete">
-      <input type='hidden' name="_method" value="delete">
-      <input class='button' type='submit' value='delete post'>
-    </form>
-    </td>
   </tr>
   </table>
 
