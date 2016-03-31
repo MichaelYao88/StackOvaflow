@@ -11,6 +11,21 @@ post '/upboat/questions/:id' do
   end
 end
 
+post '/upboat/comments/:id' do
+  comment = Comment.find(params[:id])
+  vote = comment.votes.find_or_create_by(voter: current_user)
+  vote.value = 1
+  vote.save
+  if request.xhr?
+    total = comment.votes.reduce(0){ |sum, votes| sum + votes.value }
+    total.to_s
+  else
+    question = comment.answer.question
+    redirect "/questions/#{question.id}"
+  end
+end
+
+
 post '/downboat/questions/:id' do
   question = Question.find(params[:id])
   vote = question.votes.find_or_create_by(voter: current_user)
@@ -21,6 +36,21 @@ post '/downboat/questions/:id' do
     total.to_s
   else
     redirect '/'
+  end
+end
+
+post '/downboat/comments/:id' do
+  comment = Comment.find(params[:id])
+  
+  vote = comment.votes.find_or_create_by(voter: current_user)
+  vote.value = -1
+  vote.save
+ if request.xhr?
+    total = comment.votes.reduce(0){ |sum, votes| sum + votes.value }
+    total.to_s
+  else
+    question = comment.answer.question
+    redirect "/questions/#{question.id}"
   end
 end
 
