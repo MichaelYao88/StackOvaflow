@@ -4,7 +4,7 @@ class CreateQuestions < ActiveRecord::Migration
       t.integer  :questioner_id
       t.string   :question_title
       t.string   :question_body
-      t.integer  :best_answer_id
+      # t.integer  :best_answer_id
 
       t.timestamps(null:false)
     end
