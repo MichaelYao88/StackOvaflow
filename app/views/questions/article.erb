@@ -1,6 +1,16 @@
 <h1 class='title'><%=@question.question_title%></h1>
 
 <p class='body'><%=@question.question_body%>
+
+<% @question.comments.each do |comment| %>
+<article>
+  <p>QUESTION COMMENT: <%= comment.text %></p>
+
+  <p class="edit_question_comment"><a href="/comments/<%=comment.id%>/edit">Edit Comment</a>
+ </article>
+<% end %>
+<p class="add_question_commment"><a href="/questions/<%= @question.id %>/comments/new">Comment!</a></p>
+
 <% if current_user == @question.questioner %>
   <a href='<%= @question.id %>/edit' class="edit-link">Edit</a>
 <% end %>
@@ -8,7 +18,14 @@
 
 <ul>
 <%@question.answers.each do |answer|%>
+
   <li class='answer'>ANSWER: <%=answer.text%> -- <%=answer.answerer.name%></li>
+
+  <!-- upvote/downvote buttons for answers -->
+  <a href="/upboat/answers/<%= answer.id%>" class="upboat">^UP^</a>
+  <span class="upvotes"><%= vote_total(answer) %></span>
+  <a href="/downboat/answers/<%= answer.id%>" class="downboat">vDOWNv</a>
+
   <li>
     <form action='/questions/<%= @question.id %>/answers/<%= answer.id %>/edit' method='get'>
       <input class ='button' type='submit' value='edit post'>

@@ -23,8 +23,8 @@
     <header class="header"><img class='logo' src="/images/logo.jpg" alt="logo"></header>
 
     <ul class="nav">
-      <% if logged_in? %>
       <li><a href='/'>Home</a></li>
+      <% if logged_in? %>
         <li><a href='/users/show'><%= current_user.name %></a></li>
         <li><a href='/logout'>Log Out</a></li>
       <% else %>
