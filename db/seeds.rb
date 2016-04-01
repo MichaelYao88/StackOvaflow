@@ -18,7 +18,7 @@ vote2 = comment2.votes.create!(voter: bruce, value: 1)
 
 question3 = bruce.questions.create!(question_title: "What is the sexiest whale?", question_body: "whale I ever be happy")
 
-question4 = whalliam.questions.create!(question_title: "Whale weight loss tips?", question_body: "whale I ever be happy")
+question4 = whalliam.questions.create!(question_title: "How do I lose blubber in my tail fin?", question_body: "whale I ever be happy")
 
 question5 = bruce.questions.create!(question_title: "Whale I do whale on the self-assessment?", question_body: "Fuck baleen whales")
 #create 10 new users at random
