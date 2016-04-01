@@ -16,7 +16,11 @@ answer2 = question2.answers.create!(answerer: bruce, text: "Fish and ships?"  )
 comment2 = answer2.comments.create!(commenter: whaley_wonka, text: "I don't know what?")
 vote2 = comment2.votes.create!(voter: bruce, value: 1)
 
+question3 = bruce.questions.create!(question_title: "What is the sexiest whale?", question_body: "whale I ever be happy")
 
+question4 = whalliam.questions.create!(question_title: "Whale weight loss tips?", question_body: "whale I ever be happy")
+
+question5 = bruce.questions.create!(question_title: "Whale I do whale on the self-assessment?", question_body: "Fuck baleen whales")
 #create 10 new users at random
 10.times do
   User.create!({
@@ -57,6 +61,16 @@ end
     text: Faker::Hipster.sentence,
     commenter: user
     })
+end
+
+50.times do
+	question1.votes.create!({value: 1})
+	question2.votes.create!({value: 1})
+	question3.votes.create!({value: 1})
+	question4.votes.create!({value: 1})
+	question5.votes.create!({value: 1})
+	question = Question.all.sample
+	question.votes.create!({value: 1})
 end
 
 
